@@ -2,6 +2,12 @@ import React from 'react';
 import './QnA_page.css';
 import { TypeAnimation } from 'react-type-animation';
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faFolder, faTrashCan} from '@fortawesome/free-regular-svg-icons';
+import {faPlus} from '@fortawesome/free-solid-svg-icons';
+
+
+import { Link } from 'react-router-dom';
 
  
 function QnA_page(){
@@ -51,14 +57,30 @@ function QnA_page(){
         
         
         <div className='container'>
+             <header className='q-header-class'>
+                <div className='menu'>
+                <h5 classsName='logo-text'>TEN Market</h5>
+                <Link to="/QnA_page"><button className='new-btn  mt-4'><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>Add Blueprint</button></Link>
+                
+               <div> <p className='draft mt-3'>DRAFTS</p>
+                <div className='divider'></div>
+                <p className='draft mt-3'>GENERATED BLUEPRINTS</p>
+                
+                <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Standard</button>
+                <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Upgraded</button>
+                </div></div>
+                <div className='del-position'>
+                <button type='button' className='q-delete mt-3'><FontAwesomeIcon icon={faTrashCan} ></FontAwesomeIcon>Clear drafts</button></div>
+                
+            </header>
             <div className='row mt-3'>
-                <div className='col-lg-8 col-md-8 col-12'>
+                <div className=''>
                   <div className='pro-algin'>
                      <span className='qna-free'>Free</span>
                      <span className='qna-pro'>Pro</span>
                      <span className='qna-pro'>Premium</span>
                   </div>
-                  <div className='mydivider mt-5'></div>
+                  <div className='mydivider mt-5'>jefejskvwfkwmnfqnfqjnfnnwjnfwejnfwejnjnnj</div>
                   <div className='bussiness' >
                     <div className='logo'>
                     <img src='./images/logo.png' ></img>
