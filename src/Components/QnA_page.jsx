@@ -12,7 +12,9 @@ import { Link } from 'react-router-dom';
  
 function QnA_page(){
     const [count,setCount]=useState(["Blueprint 1"])
+
     const [print,setPrint]=useState(1);
+
     const [idea, setIdea] = useState(false);
 	const [startup, setStartup] = useState(false);
     const [brand, setBrand] = useState(false);
@@ -54,13 +56,14 @@ function QnA_page(){
         setContent(false);
 	};
     function add(){
-        if(print>1){
-            setCount([...count,`Blueprint ${print}`]);
-           }
+        console.log("before "+print)
         setPrint(print+1);
-       console.log(count);
-
-      
+        console.log(print+1);
+        if(print!=1){
+            console.log("updated "+print);
+            setCount([...count,`Blueprint ${print}`]);
+            console.log(count);
+           } 
     }
 
     
@@ -71,7 +74,7 @@ function QnA_page(){
              <header className='q-header-class'>
                 <div className='menu'>
                 <h5 classsName='logo-text'>TEN Market</h5>
-                <Link to="/QnA_page"><button className='new-btn  mt-4' onClick={add}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>Add Blueprint</button></Link>
+                <button className='new-btn  mt-4' onClick={add}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>Add Blueprint</button>
                 
                <div> <p className='draft mt-3'>DRAFTS</p>
                 <div className='divider'></div>
@@ -79,6 +82,9 @@ function QnA_page(){
                 
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Standard</button>
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Upgraded</button>
+                {count.map((item)=>{
+                    return <button>{item}</button>
+                })}
                 </div></div>
                 <div className='del-position'>
                 <button type='button' className='q-delete mt-3'><FontAwesomeIcon icon={faTrashCan} ></FontAwesomeIcon>Clear drafts</button></div>
