@@ -73,14 +73,16 @@ function QnA_page(){
                 <button type='button' className='q-delete mt-3'><FontAwesomeIcon icon={faTrashCan} ></FontAwesomeIcon>Clear drafts</button></div>
                 
             </header>
+
+
             <div className='row mt-3'>
-                <div className=''>
+                <div>
                   <div className='pro-algin'>
                      <span className='qna-free'>Free</span>
                      <span className='qna-pro'>Pro</span>
                      <span className='qna-pro'>Premium</span>
                   </div>
-                  <div className='mydivider mt-5'>jefejskvwfkwmnfqnfqjnfnnwjnfwejnfwejnjnnj</div>
+                  <div className='mydivider mt-5'></div>
                   <div className='bussiness' >
                     <div className='logo'>
                     <img src='./images/logo.png' ></img>
