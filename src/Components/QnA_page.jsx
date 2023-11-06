@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
  
 function QnA_page(){
-    const [count,setCount]=useState(["Blueprint 1"])
+    const [count,setCount]=useState([])
 
     const [print,setPrint]=useState(1);
 
@@ -56,14 +56,14 @@ function QnA_page(){
         setContent(false);
 	};
     function add(){
-        console.log("before "+print)
+        // console.log("before "+print)
         setPrint(print+1);
-        console.log(print+1);
-        if(print!=1){
-            console.log("updated "+print);
+        // console.log(print+1);
+
+            // console.log("updated "+print);
             setCount([...count,`Blueprint ${print}`]);
             console.log(count);
-           } 
+           
     }
 
     
@@ -83,7 +83,7 @@ function QnA_page(){
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Standard</button>
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Upgraded</button>
                 {count.map((item)=>{
-                    return <button>{item}</button>
+                    return <button  className='new-btn mt-3'>{item}</button>
                 })}
                 </div></div>
                 <div className='del-position'>
