@@ -11,6 +11,10 @@ import { Link } from 'react-router-dom';
 
  
 function QnA_page(){
+    const [count,setCount]=useState(["Blueprint 1"])
+
+    const [print,setPrint]=useState(1);
+
     const [idea, setIdea] = useState(false);
 	const [startup, setStartup] = useState(false);
     const [brand, setBrand] = useState(false);
@@ -51,16 +55,26 @@ function QnA_page(){
 		setPublic_relation(false);
         setContent(false);
 	};
+    function add(){
+        console.log("before "+print)
+        setPrint(print+1);
+        console.log(print+1);
+        if(print!=1){
+            console.log("updated "+print);
+            setCount([...count,`Blueprint ${print}`]);
+            console.log(count);
+           } 
+    }
 
     
     return(
         
         
-        <div className='container'>
+        <div className='container main'>
              <header className='q-header-class'>
                 <div className='menu'>
                 <h5 classsName='logo-text'>TEN Market</h5>
-                <Link to="/QnA_page"><button className='new-btn  mt-4'><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>Add Blueprint</button></Link>
+                <button className='new-btn  mt-4' onClick={add}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>Add Blueprint</button>
                 
                <div> <p className='draft mt-3'>DRAFTS</p>
                 <div className='divider'></div>
@@ -68,6 +82,9 @@ function QnA_page(){
                 
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Standard</button>
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Upgraded</button>
+                {count.map((item)=>{
+                    return <button>{item}</button>
+                })}
                 </div></div>
                 <div className='del-position'>
                 <button type='button' className='q-delete mt-3'><FontAwesomeIcon icon={faTrashCan} ></FontAwesomeIcon>Clear drafts</button></div>
@@ -76,7 +93,11 @@ function QnA_page(){
 
 
             <div className='row mt-3'>
+<<<<<<< HEAD
                 <div>
+=======
+                <div className='col-lg-9 col-md-8 col-12'><div class="blue"><h3>Blueprint {print}</h3></div>
+>>>>>>> 51520277ad1fed70d7f17cfc49d2248da33d084d
                   <div className='pro-algin'>
                      <span className='qna-free'>Free</span>
                      <span className='qna-pro'>Pro</span>
@@ -84,7 +105,7 @@ function QnA_page(){
                   </div>
                   <div className='mydivider mt-5'></div>
                   <div className='bussiness' >
-                    <div className='logo'>
+                    <div className='logo mt-3'>
                     <img src='./images/logo.png' ></img>
                     </div>
                  <span> <TypeAnimation 
