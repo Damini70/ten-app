@@ -57,15 +57,12 @@ function QnA_page(){
 	};
     function add(){
         // console.log("before "+print)
-   
-        let newCount ={count:`Blueprint ${print}`};
-        // console.log(print+1);
-        if(print!=1){
-            // console.log("updated "+print);
-            setCount([...count,newCount]);
-            console.log(newCount);
-           } 
-           setPrint(print+1);
+        setPrint((prev)=>{
+            prev=prev+1;
+            setCount([...count,`Blueprint ${prev}`])
+            return prev;
+        })
+        console.log(count);
     }
 
     
