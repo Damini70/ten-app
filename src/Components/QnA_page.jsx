@@ -93,11 +93,10 @@ function QnA_page(){
 
 
             <div className='row mt-3'>
-<<<<<<< HEAD
                 <div>
 =======
                 <div className='col-lg-9 col-md-8 col-12'><div class="blue"><h3>Blueprint {print}</h3></div>
->>>>>>> 51520277ad1fed70d7f17cfc49d2248da33d084d
+
                   <div className='pro-algin'>
                      <span className='qna-free'>Free</span>
                      <span className='qna-pro'>Pro</span>
