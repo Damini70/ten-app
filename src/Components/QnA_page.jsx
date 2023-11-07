@@ -1,6 +1,9 @@
 import React from 'react';
 import './QnA_page.css';
 import { TypeAnimation } from 'react-type-animation';
+import {BiSpreadsheet } from "react-icons/bi";
+import {BiTrash } from "react-icons/bi";
+import {BiSolidEditAlt} from "react-icons/bi";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFolder, faTrashCan} from '@fortawesome/free-regular-svg-icons';
@@ -56,16 +59,24 @@ function QnA_page(){
         setContent(false);
 	};
     function add(){
-        // console.log("before "+print)
-   
-        let newCount ={count:`Blueprint ${print}`};
-        // console.log(print+1);
-        if(print!=1){
-            // console.log("updated "+print);
-            // setCount([...count,newCount]);
-            console.log(newCount);
-           } 
-           setPrint(print+1);
+
+        let a=print+1;
+        setPrint(a);
+        // console.log(print)
+
+        setPrint((state)=>{
+            
+            console.log(state)
+          let newCount=`Blueprint ${state}`;
+        //   console.log(newCount)
+        setCount([...count, newCount]);
+          return state;
+        
+        })
+        
+            // console.log(count);
+           
+
     }
 
     
@@ -85,15 +96,13 @@ function QnA_page(){
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Standard</button>
                 <button type='button' className='new-btn mt-3'><FontAwesomeIcon icon={faFolder} ></FontAwesomeIcon>Upgraded</button>
                 {count.map((item)=>{
-                    return <button>{item}</button>
+                    return <button className='main-btn'><BiSpreadsheet></BiSpreadsheet>{item} <BiSolidEditAlt></BiSolidEditAlt><BiTrash></BiTrash></button>
                 })}
                 </div></div>
                 <div className='del-position'>
                 <button type='button' className='q-delete mt-3'><FontAwesomeIcon icon={faTrashCan} ></FontAwesomeIcon>Clear drafts</button></div>
                 
             </header>
-
-
             <div className='row mt-3'>
                 <div className='col-lg-9 col-md-8 col-12'><div class="blue"><h3>Blueprint {print}</h3></div>
                   <div className='pro-algin'>
